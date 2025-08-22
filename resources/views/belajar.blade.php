@@ -9,16 +9,15 @@
 </head>
 
 <body>
-    <h1>Aritmatika</h1>
+    <h1>Aritmatika Dasar</h1>
     <br>
-    <a href="{{ url('tambah') }}">Tambah</a>
-    {{-- gisa memanggil kayak gini --}}
-    <a href="{{url ('kurang')}}">Kurang</a>
-    <a href="{{url ('bagi')}}">Bagi</a>
-    <a href="{{url ('kali')}}">Kali</a>
+    <a href="{{ route('tambah') }}">Tambah</a>
+    <a href="{{ route('kurang') }}">Kurang</a>
+    <a href="">Bagi</a>
+    <a href="">Kali</a>
     <br><br><br>
 
-    <h1>Data pengguna</h1>
+    <h1>Data Pengguna</h1>
     <table width="100%" border="1">
         <thead>
             <tr>
@@ -28,13 +27,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($users as $index => $user )
-
-            <tr>
-                <td>{{ $index += 1}}</td>
-                <td>{{ $user->name ?? ''}}</td>
-                <td>{{ $user->email ?? ''}}</td>
-            </tr>
+            @foreach ($users as $index => $user)
+                <tr>
+                    <td>{{ $index += 1 }}</td>
+                    <td>{{ $user->name ?? '' }}</td>
+                    <td>{{ $user->email ?? '' }}</td>
+                </tr>
             @endforeach
         </tbody>
     </table>

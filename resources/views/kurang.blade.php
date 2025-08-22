@@ -5,23 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Belajar Laravel</title>
 </head>
 
 <body>
-    <h1>Kurang Data</h1>
+    <h1>Tambah Data</h1>
     <form action="{{ route('store_kurang') }}" method="post">
         @csrf
-        <label for="">Angka </label>
+        <label for="">Angka 1</label>
         <input type="number" name="angka1">
-        <br>
-        <label for="">Angka </label>
+        <br><br>
+        <label for="">Angka 2</label>
         <input type="number" name="angka2">
-        <br>
-        <button type="submit">Proses</button>
+        <br><br>
+        <button type="submit">Prosess</button>
+        <a href="{{ url()->previous() }}">Kembali</a>
     </form>
 
-    <h3>Jumlah : {{ $jumlah ?? 0 }}</h3>
+    <h3>Jumlahnya : {{ $jumlah ?? 0 }} </h3>
+
 </body>
 
 </html>

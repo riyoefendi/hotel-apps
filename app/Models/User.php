@@ -23,28 +23,29 @@ class User extends Authenticatable
         'password',
     ];
 
+
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var list<string>
      */
-    // adtribut yg tidak di munculkan ke user
     protected $hidden = [
         'password',
         'remember_token',
     ];
+
 
     /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
      */
-    // konfersi tipe data dari string (tidak wajib)
     protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+
         ];
     }
 }
