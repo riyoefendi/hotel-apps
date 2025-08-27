@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Reservations extends Model
 {
     protected $fillable =
-[        'guest_name',
+    [
+        'guest_name',
         'guest_phone',
         'guest_email',
         'guest_room_number',
@@ -23,5 +24,5 @@ class Reservations extends Model
         'isReserve',
         'subtotal',
         'totalAmount',
-];
+    ];
 }

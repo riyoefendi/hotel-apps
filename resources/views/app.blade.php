@@ -8,7 +8,7 @@
     <title>{{ $title ?? 'Management Hotel' }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-    <meta name="csrf-token" content="{{ csrf_token }}">
+    <meta name="csrf-token" content="{{ csrf_token()}}">
 
     <!-- Favicons -->
     <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
@@ -185,21 +185,32 @@
             const room_id = document.querySelector('#room_id').value;
             const guest_room_number = document.querySelector('select[name="guest_room_number"]').value;
             const guest_note = document.querySelector('textarea[name="guest_note"]').value;
-            const guest_check_in = document.querySelector('input[name="guest_check_in"]').value;
-            const guest_check_out = document.querySelector('input[name="guest_check_out"]').value;
+            const guest_checkin = document.querySelector('input[name="guest_check_in"]').value;
+            const guest_checkout = document.querySelector('input[name="guest_check_out"]').value;
+            const guest_qty = document.querySelector('input[name="guest_qty"]').value;
             const payment_method = document.querySelector('input[name="payment_method"]').value;
-            const token = document.querySelector("meta[name='csrf-token']")
-
+            const subtotal = document.querySelector('#subtotal').value;
+            const nights = document.querySelector('#totalnight').value;
+            const tax = document.querySelector('#tax').value;
+            const totalAmount = document.querySelector('#totalAmount').value;
+            const token = document.querySelector("meta[name='csrf-token']").getAttribute('content');
+            const reservation_number = "RSV-270893-001"
             const data = {
                 guest_name: guest_name,
                 guest_email: guest_email,
                 guest_phone: guest_phone,
+                room_id: room_id,
                 guest_room_number: guest_room_number,
                 guest_note: guest_note,
                 guest_checkin: guest_checkin,
                 guest_checkout: guest_checkout,
-                room_id: room_id,
                 payment_method: payment_method,
+                subtotal: subtotal,
+                night: night,
+                tax: tax,
+                totalAmount: totalAmount,
+                token: csrf-token,
+                reservation_number
             }
             try {
                 const res = await fetch(`/reservation`, {

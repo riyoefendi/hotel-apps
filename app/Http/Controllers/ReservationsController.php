@@ -33,8 +33,10 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
+        $reservation_number = "RSV-270893-001";
         try {
             $data = $request->validate([
+                'reservation_number' => 'required',
                 'guest_name' => 'required',
                 'guest_email' => 'required|email',
                 'guest_phone' => 'required',
@@ -43,8 +45,28 @@ class ReservationsController extends Controller
                 'guest_checkin' => 'required|data',
                 'guest_checkout' => 'required|data|after:checkin',
                 'room_id' => 'required',
-
+                'subtotal' => 'required',
+                'tax' => 'required',
+                'totalAmount' => 'required',
+                'totalNight' => 'required',
             ]);
+
+            $data = $request->validate([
+                'reservation_number' => $request->reservation_number,
+                'guest_name' => $request->guest_name,
+                'guest_email' => $request->guest_name,
+                'guest_phone' => $request->guest_phone,
+                'guest_note' => $request->guest_note,
+                'guest_room_number' => $request->guest_room_number,
+                'guest_checkin' => $request->guest_checkin,
+                'guest_checkout' =>  $request->guest_checkout,
+                'room_id' => $request->room_id,
+                'subtotal' => $request->subtotal,
+                'tax' => $request->tax,
+                'totalAmount' => $request->totalAmount,
+                'totalNight' => $request->reservation_number,
+            ]);
+
             $create = Reservations::create($data);
             return response()
                 ->json(
